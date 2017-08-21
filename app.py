@@ -42,7 +42,7 @@ def webhook():
                     if "http" in message_text:
                         URL="http"+message_text.split("http")[1].split(" ")[0]
                         RES=requests.get("https://api.openaccessbutton.org/find/?url="+URL)
-                        send_message(sender_id, json.dumps(RES.json()))
+                        send_message(sender_id, RES.json()["data"]["availability"][0]["url"])
                     else:
                         send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!")
 
