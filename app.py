@@ -43,12 +43,15 @@ def webhook():
                         URL="http"+message_text.split("http")[1].split(" ")[0] # extract a URL
                         send_message(sender_id, "One second! Here it comes...") # this message responds immediately to let them know we're working
                         RES=requests.get("https://api.openaccessbutton.org/find/?from=fbapp&url="+URL) # send the URL off to the OAB API
-                        if len(RES.json()["data"]["availability"])>0:
-                            send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL.
-                        elif len(RES.json()["data"]["requests"])>0:
-                            send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if the above isn't true, send a sad message.
-                        else:
-                            send_message(sender_id, "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="+URL) # if the above isn't true, send a sad message.
+                        try:
+                            if len(RES.json()["data"]["availability"])>0:
+                                send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL.
+                            elif len(RES.json()["data"]["requests"])>0:
+                                send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if the above isn't true, send a sad message.
+                            else:
+                                send_message(sender_id, "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="+URL) # if the above isn't true, send a sad message.
+                        except:
+                            send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.")
                     else:
                         send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!") # if not a URL, send along instructions
 
