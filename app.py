@@ -44,14 +44,14 @@ def webhook():
                         send_message(sender_id, "One second! Here it comes...") # this message responds immediately to let them know we're working
                         RES=requests.get("https://api.openaccessbutton.org/find/?from=fbapp&url="+URL) # send the URL off to the OAB API
                         try:
-                            if len(RES.json()["data"]["availability"])>0:
+                            if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
                                 send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL.
-                            elif len(RES.json()["data"]["requests"])>0:
+                            elif len(RES.json()["data"]["requests"])>0: # check if we have a request
                                 send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if the above isn't true, send a sad message.
                             else:
                                 send_message(sender_id, "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="+URL) # if the above isn't true, send a sad message.
                         except:
-                            send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.")
+                            send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.") # if the api returns nothing, drop the user an error note
                     else:
                         send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!") # if not a URL, send along instructions
 
