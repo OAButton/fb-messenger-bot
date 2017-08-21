@@ -40,12 +40,12 @@ def webhook():
                     message_text = messaging_event["message"]["text"]  # the message's text
 
                     if "http" in message_text:
-                        URL="http"+message_text.split("http")[1].split(" ")[0]
-                        send_message(sender_id, "One second! Here it comes...")
-                        RES=requests.get("https://api.openaccessbutton.org/find/?url="+URL)
-                        send_message(sender_id, RES.json()["data"]["availability"][0]["url"])
+                        URL="http"+message_text.split("http")[1].split(" ")[0] # extract a URL
+                        send_message(sender_id, "One second! Here it comes...") # this message responds immediately to let them know we're working
+                        RES=requests.get("https://api.openaccessbutton.org/find/?url="+URL) # send the URL off to the OAB API
+                        send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. 
                     else:
-                        send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!")
+                        send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!") # if not a URL, send along instructions
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
