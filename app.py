@@ -46,7 +46,7 @@ def webhook():
                         if len(RES.json()["data"]["availability"])>0:
                             send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL.
                         elif len(RES.json()["data"]["requests"])>0:
-                            send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["id"]) # if the above isn't true, send a sad message.
+                            send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if the above isn't true, send a sad message.
                         else:
                             send_message(sender_id, "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="+URL) # if the above isn't true, send a sad message.
                     else:
