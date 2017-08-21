@@ -39,7 +39,12 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "Hey! Give me an article URL and I/'ll try and get you an Open Access version.!")
+                    if "http" in message_text:
+                        URL="http"+message_text.split("http")[1].split(" ")[0]
+                        RES=requests.get("https://api.openaccessbutton.org/find/?url="+URL)
+                        send_message(sender_id, json.dumps(RES.json()))
+                    else:
+                        send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!")
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
