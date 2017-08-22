@@ -59,6 +59,7 @@ def webhook():
                                 send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if the above isn't true, send a sad message.
                             else:
                                 send_message(sender_id, "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="+URL) # if the above isn't true, send a sad message.
+                                send_message(sender_id, "How did I do?") # ask for feedback
                         except:
                             send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.") # if the api returns nothing, drop the user an error note
                     else:
