@@ -1,12 +1,3 @@
-# todo
-# * adding varied responses
-# * adding some proper copy
-# * add in quing
-# * move onto the live server
-# * add a time delay & ask for feedback
-# * see if we can port this to other places
-# * maybe add other inputs (like doi's & titles)
-
 import os
 import sys
 import json
