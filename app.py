@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import random
+import uuid
 
 import requests
 from flask import Flask, request
@@ -112,7 +113,7 @@ def send_message(recipient_id, message_text):
             "id": recipient_id
         },
         "message": {
-            "text": message_text
+            "text": message_text + uuid.uuid4().hex
         }
     })
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
