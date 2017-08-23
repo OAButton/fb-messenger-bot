@@ -71,7 +71,7 @@ def webhook():
                         except:
                             send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.") # if the api returns nothing, drop the user an error note
                     else:
-                        send_message(sender_id, random.choice(statements[instructions])) # if not a URL, send along instructions
+                        send_message(sender_id, random.choice(statements["instructions"])) # if not a URL, send along instructions
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
