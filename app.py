@@ -28,15 +28,15 @@ def webhook():
 
     statements={
         instructions:[
-        "I'm statement one",
-        "Hey! Give me an article URL and I'll try and get you an Open Access version!",
-        "I'm statement two"  # commas not on the first line
-        ]
+            "I'm statement one",
+            "Hey! Give me an article URL and I'll try and get you an Open Access version!",
+            "I'm statement two"  # commas not on the last line
+        ],
         loading:[
-        "One second! Here it comes..."
-        ]
+            "One second! Here it comes..."
+        ],
         success:[
-            "I am a statement",
+            "I am a statement"
         ],
         request:[],
         sad:[],
