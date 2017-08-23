@@ -33,18 +33,24 @@ def webhook():
             "I'm statement two"  # commas not on the last line
         ],
         "loading":[
+            "Hmmm, let us take a look...",
             "One second! Here it comes..."
         ],
         "success":[
-            "I am a statement"
+            "Great news! Looks like we found something!",
+            " ",
+            "Looks like we found something!"
         ],
         "request":[
+            "No OA, but someone has asked the author, add your support https://openaccessbutton.org/request/",
             "We've got a request https://openaccessbutton.org/request/"
         ],
         "sad":[
+            "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://openaccessbutton.org?url=",
             "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="
         ],
         "fail":[
+            "Oh nooes. Looks like I needz a bit more training.",
             "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz."
         ]
     }
@@ -69,7 +75,7 @@ def webhook():
                         RES=requests.get("https://api.openaccessbutton.org/find/?from=fbapp&url="+URL) # send the URL off to the OAB API
                         try:
                             if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
-                                send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
+                                send_message(sender_id, random.choice(statements["success"])+RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
                             elif len(RES.json()["data"]["requests"])>0: # check if we have a request e.g http://immunology.sciencemag.org/content/2/14/eaan5393
                                 send_message(sender_id, random.choice(statements["request"])+RES.json()["data"]["requests"][0]["_id"]) # if there are no requests or oa versions, send a sad message.
                             else:
