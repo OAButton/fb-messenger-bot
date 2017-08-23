@@ -27,20 +27,20 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     statements={
-        instructions:[
+        "instructions":[
             "I'm statement one",
             "Hey! Give me an article URL and I'll try and get you an Open Access version!",
             "I'm statement two"  # commas not on the last line
         ],
-        loading:[
+        "loading":[
             "One second! Here it comes..."
         ],
-        success:[
+        "success":[
             "I am a statement"
         ],
-        request:[],
-        sad:[],
-        fail:[]
+        "request":[],
+        "sad":[],
+        "fail":[]
     }
 
     data = request.get_json()
