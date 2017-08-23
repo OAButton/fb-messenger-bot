@@ -39,7 +39,7 @@ def webhook():
             "I am a statement",
         ],
         request:[],
-        sad:[]
+        sad:[],
         fail:[]
     }
 
