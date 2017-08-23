@@ -65,13 +65,13 @@ def webhook():
 
                     if "http" in message_text:
                         URL="http"+message_text.split("http")[1].split(" ")[0] # extract a URL
-                        send_message(sender_id, "One second! Here it comes...") # this message responds immediately to let them know we're working
+                        send_message(sender_id, random.choice(statements["loading"])) # this message responds immediately to let them know we're working
                         RES=requests.get("https://api.openaccessbutton.org/find/?from=fbapp&url="+URL) # send the URL off to the OAB API
                         try:
                             if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
                                 send_message(sender_id, RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
                             elif len(RES.json()["data"]["requests"])>0: # check if we have a request e.g http://immunology.sciencemag.org/content/2/14/eaan5393
-                                send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if there are no requests or oa versions, send a sad message.
+                                send_message(sender_id, random.choice(statements["request"])+RES.json()["data"]["requests"][0]["_id"]) # if there are no requests or oa versions, send a sad message.
                             else:
                                 send_message(sender_id, random.choice(statements["sad"])+URL) # if the above isn't true, send a sad message. You can use this URL https://link.springer.com/article/10.1007%2FBF00326615?LI=true but who knows... someone might make a request or OA for it one day!
                         except:
