@@ -37,9 +37,9 @@ def webhook():
             "One second! Here it comes..."
         ],
         "success":[
-            "Great news! Looks like we found something!",
+            "Great news! Looks like we found something! ",
             " ",
-            "Looks like we found something!"
+            "Looks like we found something! "
         ],
         "request":[
             "No OA, but someone has asked the author, add your support https://openaccessbutton.org/request/",
