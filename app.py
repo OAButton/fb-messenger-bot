@@ -38,9 +38,15 @@ def webhook():
         "success":[
             "I am a statement"
         ],
-        "request":[],
-        "sad":[],
-        "fail":[]
+        "request":[
+            "We've got a request https://openaccessbutton.org/request/"
+        ],
+        "sad":[
+            "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="
+        ],
+        "fail":[
+            "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz."
+        ]
     }
 
     data = request.get_json()
@@ -67,9 +73,9 @@ def webhook():
                             elif len(RES.json()["data"]["requests"])>0: # check if we have a request e.g http://immunology.sciencemag.org/content/2/14/eaan5393
                                 send_message(sender_id, "We've got a request https://openaccessbutton.org/request/"+RES.json()["data"]["requests"][0]["_id"]) # if there are no requests or oa versions, send a sad message.
                             else:
-                                send_message(sender_id, "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="+URL) # if the above isn't true, send a sad message. You can use this URL https://link.springer.com/article/10.1007%2FBF00326615?LI=true but who knows... someone might make a request or OA for it one day!
+                                send_message(sender_id, random.choice(statements["sad"])+URL) # if the above isn't true, send a sad message. You can use this URL https://link.springer.com/article/10.1007%2FBF00326615?LI=true but who knows... someone might make a request or OA for it one day!
                         except:
-                            send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.") # if the api returns nothing, drop the user an error note
+                            send_message(sender_id, random.choice(statements["fail"])) # if the api returns nothing, drop the user an error note
                     else:
                         send_message(sender_id, random.choice(statements["instructions"])) # if not a URL, send along instructions
 
