@@ -100,9 +100,8 @@ def webhook():
 
 def send_message(recipient_id, message_text):
 
-    uuid = {
-        "uuid":uuid.uuid4().hex
-    }
+
+    uuid = uuid.uuid4().hex
 
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + uuid))
 
