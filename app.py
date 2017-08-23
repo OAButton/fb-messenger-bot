@@ -69,7 +69,6 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    uuid = uuid.uuid4().hex
 
                     if "http" in message_text:
                         URL="http"+message_text.split("http")[1].split(" ")[0] # extract a URL
@@ -101,7 +100,11 @@ def webhook():
 
 def send_message(recipient_id, message_text):
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + {uuid}))
+    uuid = {
+        "uuid":uuid.uuid4().hex
+    }
+
+    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + uuid))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
