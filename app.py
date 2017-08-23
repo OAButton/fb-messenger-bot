@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import random
 
 import requests
 from flask import Flask, request
@@ -24,6 +25,23 @@ def verify():
 def webhook():
 
     # endpoint for processing incoming messaging events
+
+    statements={
+        instructions:[
+        "I'm statement one",
+        "Hey! Give me an article URL and I'll try and get you an Open Access version!",
+        "I'm statement two"  # commas not on the first line
+        ]
+        loading:[
+        "One second! Here it comes..."
+        ]
+        success:[
+            "I am a statement",
+        ],
+        request:[],
+        sad:[]
+        fail:[]
+    }
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
@@ -53,7 +71,7 @@ def webhook():
                         except:
                             send_message(sender_id, "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz.") # if the api returns nothing, drop the user an error note
                     else:
-                        send_message(sender_id, "Hey! Give me an article URL and I'll try and get you an Open Access version!") # if not a URL, send along instructions
+                        send_message(sender_id, random.choice(statements[instructions])) # if not a URL, send along instructions
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
