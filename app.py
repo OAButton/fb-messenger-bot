@@ -47,8 +47,8 @@ def webhook():
             "We've got a request https://openaccessbutton.org/request/"
         ],
         "sad":[
-            "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://openaccessbutton.org?url=",
-            "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?url="
+            "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://openaccessbutton.org?from=fbapp&url=",
+            "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?from=fbapp&url="
         ],
         "fail":[
             "Oh nooes. Looks like I needz a bit more training.",
