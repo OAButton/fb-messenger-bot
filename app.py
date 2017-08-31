@@ -103,7 +103,7 @@ def send_message(recipient_id, message_text):
 
     uuid = uuid.uuid4().hex
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + global uuid))
+    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + uuid))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
@@ -116,7 +116,7 @@ def send_message(recipient_id, message_text):
             "id": recipient_id
         },
         "message": {
-            "text": message_text + global uuid
+            "text": message_text + uuid
         }
     })
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
