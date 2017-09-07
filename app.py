@@ -47,7 +47,7 @@ def webhook():
             "We've got a request https://dev.openaccessbutton.org/request/"
         ],
         "sad":[
-            "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://openaccessbutton.org?from=fbapp&url=",
+            "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://dev.openaccessbutton.org?plugin=chatbot&url=",
             "Bad luck, try again next time. Maybe try and make a request at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url="
         ],
         "fail":[
