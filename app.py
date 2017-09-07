@@ -43,12 +43,12 @@ def webhook():
             "Looks like we found something! "
         ],
         "request":[
-            "No OA, but someone has asked the author, add your support https://openaccessbutton.org/request/",
-            "We've got a request https://openaccessbutton.org/request/"
+            "No OA, but someone has asked the author, add your support https://dev.openaccessbutton.org/request/",
+            "We've got a request https://dev.openaccessbutton.org/request/"
         ],
         "sad":[
             "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://openaccessbutton.org?from=fbapp&url=",
-            "Bad luck, try again next time. Maybe try and make a request at https://openaccessbutton.org?from=fbapp&url="
+            "Bad luck, try again next time. Maybe try and make a request at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url="
         ],
         "fail":[
             "Oh nooes. Looks like I needz a bit more training.",
@@ -73,7 +73,7 @@ def webhook():
                     if "http" in message_text:
                         URL="http"+message_text.split("http")[1].split(" ")[0] # extract a URL
                         send_message(sender_id, random.choice(statements["loading"])) # this message responds immediately to let them know we're working
-                        RES=requests.get("https://api.openaccessbutton.org/find/?from=fbapp&url="+URL) # send the URL off to the OAB API
+                        RES=requests.get("https://dev.api.cottagelabs.com/service/oab/find/?plugin=chatbot&url="+URL) # send the URL off to the OAB API
                         try:
                             if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
                                 send_message(sender_id, random.choice(statements["success"])+RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
