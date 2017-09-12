@@ -29,41 +29,59 @@ def webhook():
 
     statements={
         "instructions":[
-            "I'm statement one",
-            "Hey! Give me an article URL and I'll try and get you an Open Access version!",
-            "I'm statement two"  # commas not on the last line
+            "Let's start! 🧐 Send me the URL to a paywalled article.",
+            "Hey! 👋 Give me an article URL and I'll try and get you an Open Access version!",
+            "😺 Hi there! Go ahead and send me an article URL.",
+            "Hello! 👋 The first step is to send me a URL to a paywalled article.",
+            "🧐 Looking for Open Access? Send me a URL and I'll try to find you an available version." # commas not on the last line
         ],
         "loading":[
-            "Hmmm, let us take a look...",
-            "One second! Here it comes..."
+            "Hmmm, let us take a look... 🧐",
+            "One second! Here it comes...",
+            "🧐 Wait just a sec - I'm searching...",
+            "Please wait while I work on that for you.",
+            "Let's take a look. 🤞 Please wait!"
         ],
         
         # leave a space at the end so the text doesn't screw up the link. 
         "success":[
-            "Great news! Looks like we found something! ",
-            " ",
-            "Looks like we found something! "
+            "Great news! 🏆 We found something! ",
+            "👍 Looks like we found something! (If this isn't what you're looking for, type 'error'.) ",
+            "👉 ",
+            "Here's what I found: ",
+            "Is this what you were looking for? 🤞 (If not, type 'error'.) "
         ],
         
-        # request link needs to be at the end. Make clear what a request is in any response. 
+        # suggest we have a separate "ifnotright":[ message show up automatically 5 seconds after the success message 
+        # "If this isn't what you're looking for, type 'error'."
+        # ],
         
+        
+        # request link needs to be at the end. Make clear what a request is in any response.
         "support":[
-            "No OA, but someone has asked the author, add your support https://dev.openaccessbutton.org/request/",
-            "We've got a request https://dev.openaccessbutton.org/request/"
+            "It's not available yet, but someone has asked the author. 💪 Add your support: https://dev.openaccessbutton.org/request/",
+            "🧡 We've got a request, which you can add your support to: https://dev.openaccessbutton.org/request/",
+            "Someone's already asked the author for that: https://dev.openaccessbutton.org/request/",
+            "🧡 It's been requested by another researcher - you can add your support! https://dev.openaccessbutton.org/request/",
+            "Someone else wants that article too! 🧡 Add your support here: https://dev.openaccessbutton.org/request/"
         ],
         
         # same as above
-        
         "notoa":[
-            "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://dev.openaccessbutton.org?plugin=chatbot&url=",
-            "Bad luck, try again next time. Maybe try and make a request at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url="
+            "Sad times, we can't find anything. 😰 Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "Bad luck! 😫 Nothing's available. Make a request directly to the author at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
+            "It hasn't been made Open yet, but you can help! 💪 Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "It's paywalled! 😟 Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "😒 Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
         ],
         
         # no link returned here. Could return a bug link. 
-        
         "notarticle":[
-            "Oh nooes. Looks like I needz a bit more training.",
-            "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz."
+            "Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug",
+            "🐜 Sorry, I guess I have a bug. Fill out https://openaccessbutton.org/feedback#bug plz.",
+            "Something didn't work. 😰 File a bug report at https://openaccessbutton.org/feedback#bug",
+            "😬 Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
+            "Oh noes! 🕷️ Send us a bug report at https://openaccessbutton.org/feedback#bug"
         ]
     }
 
@@ -94,6 +112,10 @@ def webhook():
                                 send_message(sender_id, random.choice(statements["notoa"])+URL) # if the above isn't true, send a sad message. You can use this URL https://link.springer.com/article/10.1007%2FBF00326615?LI=true but who knows... someone might make a request or OA for it one day!
                         except:
                             send_message(sender_id, random.choice(statements["notarticle"])) # if the api returns nothing, drop the user an error note
+                            
+                    elif "error" in message_text:
+                        send_message(sender_id, random.choice(statements["notarticle"])) # if the user says "error", send an error note.
+       
                     else:
                         send_message(sender_id, random.choice(statements["instructions"])) # if not a URL, send along instructions
 
