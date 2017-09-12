@@ -30,10 +30,10 @@ def webhook():
     statements={
         "instructions":[
             "Let's start! Send me the URL to a paywalled article.",
-            "Hey! Give me an article URL and I'll try and get you an Open Access version!",
-            "Hi there! Go ahead and send me an article URL.",
+            "Hey! Give me a paywalled-article URL and I'll try and get you an Open Access version!",
+            "Hi there! Go ahead and send me a paywalled article URL.",
             "Hello! The first step is to send me a URL to a paywalled article.",
-            "Looking for Open Access? Send me a URL and I'll try to find you an available version." # commas not on the last line
+            "Looking for Open Access? Send me a paywall URL and I'll try to find you an available version." # commas not on the last line
         ],
         "loading":[
             "Hmmm, let us take a look...",
