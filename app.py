@@ -45,10 +45,10 @@ def webhook():
         
         # leave a space at the end so the text doesn't screw up the link. 
         "success":[
-            "Great news! We found something! ",
+            "Great news! We found something! (If it's wrong, type 'error'.) ",
             "Looks like we found something! (If this isn't what you're looking for, type 'error'.) ",
-            " ",
-            "Here's what I found: ",
+            "👉 ",
+            "Here's what I found (if I messed up, type 'error'): ",
             "Is this what you were looking for? (If not, type 'error'.) "
         ],
         
