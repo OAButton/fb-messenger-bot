@@ -63,7 +63,7 @@ def webhook():
             "We've got a request, which you can add your support to: https://dev.openaccessbutton.org/request/",
             "Someone's already asked the author for that: https://dev.openaccessbutton.org/request/",
             "It's been requested by another researcher - you can add your support! https://dev.openaccessbutton.org/request/",
-            "Someone else wants that article too! 🧡 Add your support here: https://dev.openaccessbutton.org/request/"
+            "Someone else wants that article too! Add your support here: https://dev.openaccessbutton.org/request/"
         ],
         
         # same as above
