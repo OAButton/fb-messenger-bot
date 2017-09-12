@@ -71,14 +71,14 @@ def webhook():
             "Sad times, we can't find anything. Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
             "Bad luck! Nothing's available. Make a request directly to the author at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
             "It hasn't been made Open yet, but you can help! Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
-            "It's paywalled! Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "OH no, it's paywalled! Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
             "Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
         ],
         
         # no link returned here. Could return a bug link. 
         "notarticle":[
             "Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug",
-            "Sorry, I guess I have a bug. Fill out https://openaccessbutton.org/feedback#bug plz.",
+            "Sorry, I guess I have a bug. :spider: Fill out https://openaccessbutton.org/feedback#bug plz.",
             "Something didn't work. File a bug report at https://openaccessbutton.org/feedback#bug",
             "Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
             "Oh noes! Send us a bug report at https://openaccessbutton.org/feedback#bug"
