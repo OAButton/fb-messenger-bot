@@ -47,7 +47,7 @@ def webhook():
         "success":[
             "Great news! We found something! (If it's wrong, type 'error'.) ",
             "Looks like we found something! (If this isn't what you're looking for, type 'error'.) ",
-            "👉 ",
+            " ",
             "Here's what I found (if I messed up, type 'error'): ",
             "Is this what you were looking for? (If not, type 'error'.) "
         ],
