@@ -29,16 +29,16 @@ def webhook():
 
     statements={
         "instructions":[
-            "Let's start! 🧐 Send me the URL to a paywalled article.",
+            "Let's start! Send me the URL to a paywalled article.",
             "Hey! 👋 Give me an article URL and I'll try and get you an Open Access version!",
             "😺 Hi there! Go ahead and send me an article URL.",
             "Hello! 👋 The first step is to send me a URL to a paywalled article.",
-            "🧐 Looking for Open Access? Send me a URL and I'll try to find you an available version." # commas not on the last line
+            "Looking for Open Access? Send me a URL and I'll try to find you an available version." # commas not on the last line
         ],
         "loading":[
-            "Hmmm, let us take a look... 🧐",
+            "Hmmm, let us take a look...",
             "One second! Here it comes...",
-            "🧐 Wait just a sec - I'm searching...",
+            "Wait just a sec - I'm searching...",
             "Please wait while I work on that for you.",
             "Let's take a look. 🤞 Please wait!"
         ],
@@ -60,9 +60,9 @@ def webhook():
         # request link needs to be at the end. Make clear what a request is in any response.
         "support":[
             "It's not available yet, but someone has asked the author. 💪 Add your support: https://dev.openaccessbutton.org/request/",
-            "🧡 We've got a request, which you can add your support to: https://dev.openaccessbutton.org/request/",
+            "We've got a request, which you can add your support to: https://dev.openaccessbutton.org/request/",
             "Someone's already asked the author for that: https://dev.openaccessbutton.org/request/",
-            "🧡 It's been requested by another researcher - you can add your support! https://dev.openaccessbutton.org/request/",
+            "It's been requested by another researcher - you can add your support! https://dev.openaccessbutton.org/request/",
             "Someone else wants that article too! 🧡 Add your support here: https://dev.openaccessbutton.org/request/"
         ],
         
