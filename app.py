@@ -37,20 +37,31 @@ def webhook():
             "Hmmm, let us take a look...",
             "One second! Here it comes..."
         ],
+        
+        # leave a space at the end so the text doesn't screw up the link. 
         "success":[
             "Great news! Looks like we found something! ",
             " ",
             "Looks like we found something! "
         ],
-        "request":[
+        
+        # request link needs to be at the end. Make clear what a request is in any response. 
+        
+        "support":[
             "No OA, but someone has asked the author, add your support https://dev.openaccessbutton.org/request/",
             "We've got a request https://dev.openaccessbutton.org/request/"
         ],
-        "sad":[
+        
+        # same as above
+        
+        "notoa":[
             "Sad times, we can't find anything. Why not as the author to make a copy available? Here's a link for you https://dev.openaccessbutton.org?plugin=chatbot&url=",
             "Bad luck, try again next time. Maybe try and make a request at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url="
         ],
-        "fail":[
+        
+        # no link returned here. Could return a bug link. 
+        
+        "notarticle":[
             "Oh nooes. Looks like I needz a bit more training.",
             "Sorry, I f*cked up. Drop hello@openaccessbutton.org an email plz."
         ]
@@ -78,11 +89,11 @@ def webhook():
                             if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
                                 send_message(sender_id, random.choice(statements["success"])+RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
                             elif len(RES.json()["data"]["requests"])>0: # check if we have a request e.g http://immunology.sciencemag.org/content/2/14/eaan5393
-                                send_message(sender_id, random.choice(statements["request"])+RES.json()["data"]["requests"][0]["_id"]) # if there are no requests or oa versions, send a sad message.
+                                send_message(sender_id, random.choice(statements["support"])+RES.json()["data"]["requests"][0]["_id"]) # if there are no requests or oa versions, send a sad message.
                             else:
-                                send_message(sender_id, random.choice(statements["sad"])+URL) # if the above isn't true, send a sad message. You can use this URL https://link.springer.com/article/10.1007%2FBF00326615?LI=true but who knows... someone might make a request or OA for it one day!
+                                send_message(sender_id, random.choice(statements["notoa"])+URL) # if the above isn't true, send a sad message. You can use this URL https://link.springer.com/article/10.1007%2FBF00326615?LI=true but who knows... someone might make a request or OA for it one day!
                         except:
-                            send_message(sender_id, random.choice(statements["fail"])) # if the api returns nothing, drop the user an error note
+                            send_message(sender_id, random.choice(statements["notarticle"])) # if the api returns nothing, drop the user an error note
                     else:
                         send_message(sender_id, random.choice(statements["instructions"])) # if not a URL, send along instructions
 
