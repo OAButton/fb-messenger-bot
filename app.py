@@ -31,9 +31,9 @@ def webhook():
     statements={
         "instructions":[
             "Let's start! Send me the URL to a paywalled article.",
-            "Hey! 👋 Give me an article URL and I'll try and get you an Open Access version!",
-            "😺 Hi there! Go ahead and send me an article URL.",
-            "Hello! 👋 The first step is to send me a URL to a paywalled article.",
+            "Hey! Give me an article URL and I'll try and get you an Open Access version!",
+            "Hi there! Go ahead and send me an article URL.",
+            "Hello! The first step is to send me a URL to a paywalled article.",
             "Looking for Open Access? Send me a URL and I'll try to find you an available version." # commas not on the last line
         ],
         "loading":[
@@ -41,16 +41,16 @@ def webhook():
             "One second! Here it comes...",
             "Wait just a sec - I'm searching...",
             "Please wait while I work on that for you.",
-            "Let's take a look. 🤞 Please wait!"
+            "Let's take a look. Please wait!"
         ],
         
         # leave a space at the end so the text doesn't screw up the link. 
         "success":[
-            "Great news! 🏆 We found something! ",
-            "👍 Looks like we found something! (If this isn't what you're looking for, type 'error'.) ",
-            "👉 ",
+            "Great news! We found something! ",
+            "Looks like we found something! (If this isn't what you're looking for, type 'error'.) ",
+            " ",
             "Here's what I found: ",
-            "Is this what you were looking for? 🤞 (If not, type 'error'.) "
+            "Is this what you were looking for? (If not, type 'error'.) "
         ],
         
         # suggest we have a separate "ifnotright":[ message show up automatically 5 seconds after the success message 
@@ -60,7 +60,7 @@ def webhook():
         
         # request link needs to be at the end. Make clear what a request is in any response.
         "support":[
-            "It's not available yet, but someone has asked the author. 💪 Add your support: https://dev.openaccessbutton.org/request/",
+            "It's not available yet, but someone has asked the author. Add your support: https://dev.openaccessbutton.org/request/",
             "We've got a request, which you can add your support to: https://dev.openaccessbutton.org/request/",
             "Someone's already asked the author for that: https://dev.openaccessbutton.org/request/",
             "It's been requested by another researcher - you can add your support! https://dev.openaccessbutton.org/request/",
@@ -69,20 +69,20 @@ def webhook():
         
         # same as above
         "notoa":[
-            "Sad times, we can't find anything. 😰 Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
-            "Bad luck! 😫 Nothing's available. Make a request directly to the author at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
-            "It hasn't been made Open yet, but you can help! 💪 Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
-            "It's paywalled! 😟 Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
-            "😒 Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
+            "Sad times, we can't find anything. Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "Bad luck! Nothing's available. Make a request directly to the author at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
+            "It hasn't been made Open yet, but you can help! Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "It's paywalled! Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
+            "Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
         ],
         
         # no link returned here. Could return a bug link. 
         "notarticle":[
             "Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug",
-            "🐜 Sorry, I guess I have a bug. Fill out https://openaccessbutton.org/feedback#bug plz.",
-            "Something didn't work. 😰 File a bug report at https://openaccessbutton.org/feedback#bug",
-            "😬 Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
-            "Oh noes! 🕷️ Send us a bug report at https://openaccessbutton.org/feedback#bug"
+            "Sorry, I guess I have a bug. Fill out https://openaccessbutton.org/feedback#bug plz.",
+            "Something didn't work. File a bug report at https://openaccessbutton.org/feedback#bug",
+            "Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
+            "Oh noes! Send us a bug report at https://openaccessbutton.org/feedback#bug"
         ]
     }
 
