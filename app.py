@@ -3,7 +3,6 @@ import sys
 import json
 import random
 import uuid
-import emoji
 
 import requests
 from flask import Flask, request
