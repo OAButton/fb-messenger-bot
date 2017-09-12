@@ -77,11 +77,11 @@ def webhook():
         
         # no link returned here. Could return a bug link. 
         "notarticle":[
-            ":grimacing: Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug",
-            "Sorry, I guess I have a bug. :spider: Fill out https://openaccessbutton.org/feedback#bug plz.",
-            "Something didn't work. :thumbsdown_tone2: File a bug report at https://openaccessbutton.org/feedback#bug",
-            ":dizzy_face: Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
-            "Oh noes! :scream_cat: Send us a bug report at https://openaccessbutton.org/feedback#bug"
+            "\U0001f63b Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug",
+            "Sorry, I guess I have a bug. \U0001f63b Fill out https://openaccessbutton.org/feedback#bug plz.",
+            "Something didn't work. \U0001f63b File a bug report at https://openaccessbutton.org/feedback#bug",
+            "\U0001f63b Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
+            "Oh noes! \U0001f63b Send us a bug report at https://openaccessbutton.org/feedback#bug"
         ]
     }
 
