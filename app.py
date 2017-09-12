@@ -114,8 +114,8 @@ def webhook():
                         except:
                             send_message(sender_id, random.choice(statements["notarticle"])) # if the api returns nothing, drop the user an error note
                             
-                    elif "error" in message_text:
-                        send_message(sender_id, random.choice(statements["notarticle"])) # if the user says "error", send an error note.
+              #      elif "error" in message_text:
+              #          send_message(sender_id, random.choice(statements["notarticle"])) # if the user says "error", send an error note.
        
                     else:
                         send_message(sender_id, random.choice(statements["instructions"])) # if not a URL, send along instructions
