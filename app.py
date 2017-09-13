@@ -36,7 +36,7 @@ def webhook():
             "U+1F600 Looking for Open Access? Send me a paywall URL and I'll try to find you an available version." # commas not on the last line
         ],
         "loading":[
-            "Hmmm, let us take a look...",
+            "Hmmm, let's take a look...",
             "One second! Here it comes...",
             "Wait just a sec - I'm searching...",
             "Please wait while I work on that for you.",
@@ -47,7 +47,7 @@ def webhook():
         "success":[
             "Great news! We found something! (If it's wrong, type 'error'.) ",
             "Looks like we found something! (If this isn't what you're looking for, type 'error'.) ",
-            " ",
+            "Tada! (If this is wrong, type 'error.') ",
             "Here's what I found (if I messed up, type 'error'): ",
             "Is this what you were looking for? (If not, type 'error'.) "
         ],
