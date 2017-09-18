@@ -29,18 +29,18 @@ def webhook():
 
     statements={
         "instructions":[
-            "U+1F600 Let's start! Send me the URL to a paywalled article.",
-            "U+1F600 Hey! Give me a paywalled-article URL and I'll try and get you an Open Access version!",
-            "U+1F600 Hi there! Go ahead and send me a paywalled article URL.",
-            "U+1F600 Hello! The first step is to send me a URL to a paywalled article.",
-            "U+1F600 Looking for Open Access? Send me a paywall URL and I'll try to find you an available version." # commas not on the last line
+            "U+1F600 Let's start! Send me the URL to a paywalled article. ",
+            "U+1F600 Hey! Give me a paywalled-article URL and I'll try and get you an Open Access version! ",
+            "U+1F600 Hi there! Go ahead and send me a paywalled article URL. ",
+            "U+1F600 Hello! The first step is to send me a URL to a paywalled article. ",
+            "U+1F600 Looking for Open Access? Send me a paywall URL and I'll try to find you an available version. " # commas not on the last line
         ],
         "loading":[
-            "Hmmm, let's take a look...",
-            "One second! Here it comes...",
-            "Wait just a sec - I'm searching...",
-            "Please wait while I work on that for you.",
-            "Let's take a look. Please wait!"
+            "Hmmm, let's take a look... ",
+            "One second! Here it comes... ",
+            "Wait just a sec - I'm searching... ",
+            "Please wait while I work on that for you. ",
+            "Let's take a look. Please wait! "
         ],
         
         # leave a space at the end so the text doesn't screw up the link. 
@@ -77,11 +77,11 @@ def webhook():
         
         # no link returned here. Could return a bug link. 
         "notarticle":[
-            "Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug",
-            "Sorry, I guess I have a bug. Fill out https://openaccessbutton.org/feedback#bug plz.",
-            "Something didn't work. File a bug report at https://openaccessbutton.org/feedback#bug",
-            "Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug",
-            "Oh noes! Send us a bug report at https://openaccessbutton.org/feedback#bug"
+            "Looks like I need a bit more training. Let us know what happened - https://openaccessbutton.org/feedback#bug ",
+            "Sorry, I guess I have a bug. Fill out https://openaccessbutton.org/feedback#bug plz. ",
+            "Something didn't work. File a bug report at https://openaccessbutton.org/feedback#bug ",
+            "Yikes, that didn't go well. Give us some information about your problem at https://openaccessbutton.org/feedback#bug ",
+            "Oh noes! Send us a bug report at https://openaccessbutton.org/feedback#bug "
         ]
     }
 
@@ -136,7 +136,7 @@ def send_message(recipient_id, message_text):
 
     myuuid = uuid.uuid4().hex
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + myuuid))
+    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + " " + myuuid))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
@@ -149,7 +149,7 @@ def send_message(recipient_id, message_text):
             "id": recipient_id
         },
         "message": {
-            "text": message_text + myuuid
+            "text": message_text + " " + myuuid
         }
     })
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
