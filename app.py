@@ -29,10 +29,11 @@ def webhook():
 
     statements={
         "instructions":[
-            "Let's start! Send me the URL to a paywalled article. ",
+            "Let's start! Send me the URL to a paywalled article.",
             "Hey! Give me a paywalled-article URL and I'll try and get you an Open Access version! ",
-            "Hi there! Go ahead and send me a paywalled article URL. ",
+            "Hi there! Go ahead and send me a paywalled article URL. (top tip: use the "share to" menu on your phone to send me links really easily)",
             "Hello! The first step is to send me a URL to a paywalled article. ",
+            "oh hi, need a paper? Send me a link and I'll try and track down a free version. (top tip: use the "share to" menu on your phone to send me links really easily)",
             "Looking for Open Access? Send me a paywall URL and I'll try to find you an available version. " # commas not on the last line
         ],
         "loading":[
@@ -40,6 +41,7 @@ def webhook():
             "One second! Here it comes... ",
             "Wait just a sec - I'm searching... ",
             "Please wait while I work on that for you. ",
+            "brb, just going to take a look for you. ",
             "Let's take a look. Please wait! "
         ],
         
