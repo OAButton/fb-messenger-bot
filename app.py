@@ -104,7 +104,6 @@ def webhook():
                     if "http" in message_text:
                         thr = threading.Thread(target=query_api, args=("http"+message_text.split("http")[1].split(" ")[0],sender_id), kwargs={})
                         thr.start()
-                        send_message(sender_id, random.choice(statements["loading"])) # this message responds immediately to let them know we're working
                     elif "error" in message_text:
                         send_message(sender_id, random.choice(statements["notarticle"])) # if the user says "error", send an error note.
 
@@ -124,6 +123,7 @@ def webhook():
 
 
 def query_api(URL,sender_id):
+    send_message(sender_id, random.choice(statements["loading"])) # this message responds immediately to let them know we're working
     RES=requests.get("https://noddy.api.cottagelabs.com/service/oab/find/?plugin=chatbot&url="+URL) # send the URL off to the OAB API
     try:
         if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
