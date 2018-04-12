@@ -44,20 +44,20 @@ statements={
 
     # request link needs to be at the end. Make clear what a request is in any response.
     "support":[
-        "It's not available yet, but someone has asked the author. Add your support: https://dev.openaccessbutton.org/request/",
-        "We've got a request, which you can add your support to: https://dev.openaccessbutton.org/request/",
-        "Someone's already asked the author for that: https://dev.openaccessbutton.org/request/",
-        "It's been requested by another researcher - you can add your support! https://dev.openaccessbutton.org/request/",
-        "Someone else wants that article too! Add your support here: https://dev.openaccessbutton.org/request/"
+        "It's not available yet, but someone has asked the author. Add your support: https://openaccessbutton.org/request/",
+        "We've got a request, which you can add your support to: https://openaccessbutton.org/request/",
+        "Someone's already asked the author for that: https://openaccessbutton.org/request/",
+        "It's been requested by another researcher - you can add your support! https://openaccessbutton.org/request/",
+        "Someone else wants that article too! Add your support here: https://openaccessbutton.org/request/"
     ],
 
     # same as above
     "notoa":[
-        "Sad times, we can't find anything. Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
-        "Bad luck! Nothing's available. Make a request directly to the author at https://dev.openaccessbutton.org?plugin=chatbot&url=",
-        "It hasn't been made Open yet, but you can help! Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
-        "OH no, it's paywalled! Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
-        "Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
+        "Sad times, we can't find anything. Why not ask the author to make a copy available? https://openaccessbutton.org?plugin=chatbot&url=",
+        "Bad luck! Nothing's available. Make a request directly to the author at https://openaccessbutton.org?plugin=chatbot&url=",
+        "It hasn't been made Open yet, but you can help! Ask the author here: https://openaccessbutton.org?plugin=chatbot&url=",
+        "OH no, it's paywalled! Help make it Open Access by asking the author directly - https://openaccessbutton.org?plugin=chatbot&url=",
+        "Ugh, it's not Open Access yet. Ask the author to make a copy available - https://openaccessbutton.org?plugin=chatbot&url="
     ],
 
     # no link returned here. Could return a bug link.
@@ -124,7 +124,7 @@ def webhook():
 
 def query_api(URL,sender_id):
     send_message(sender_id, random.choice(statements["loading"])) # this message responds immediately to let them know we're working
-    RES=requests.get("https://dev.api.cottagelabs.com/service/oab/find/?plugin=chatbot&url="+URL) # send the URL off to the OAB API
+    RES=requests.get("https://api.openaccessbutton.org/availability?plugin=chatbot&url="+URL) # send the URL off to the OAB API
     try:
         if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
             send_message(sender_id, random.choice(statements["success"])+RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
