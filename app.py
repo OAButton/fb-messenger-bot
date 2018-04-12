@@ -54,7 +54,7 @@ statements={
     # same as above
     "notoa":[
         "Sad times, we can't find anything. Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
-        "Bad luck! Nothing's available. Make a request directly to the author at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
+        "Bad luck! Nothing's available. Make a request directly to the author at https://dev.openaccessbutton.org?plugin=chatbot&url=",
         "It hasn't been made Open yet, but you can help! Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
         "OH no, it's paywalled! Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
         "Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
