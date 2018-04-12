@@ -54,7 +54,7 @@ statements={
     # same as above
     "notoa":[
         "Sad times, we can't find anything. Why not ask the author to make a copy available? https://dev.openaccessbutton.org?plugin=chatbot&url=",
-        "Bad luck! Nothing's available. Make a request directly to the author at https://noddy.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
+        "Bad luck! Nothing's available. Make a request directly to the author at https://dev.api.cottagelabs.com/service/oab?plugin=chatbot&url=",
         "It hasn't been made Open yet, but you can help! Ask the author here: https://dev.openaccessbutton.org?plugin=chatbot&url=",
         "OH no, it's paywalled! Help make it Open Access by asking the author directly - https://dev.openaccessbutton.org?plugin=chatbot&url=",
         "Ugh, it's not Open Access yet. Ask the author to make a copy available - https://dev.openaccessbutton.org?plugin=chatbot&url="
@@ -124,7 +124,7 @@ def webhook():
 
 def query_api(URL,sender_id):
     send_message(sender_id, random.choice(statements["loading"])) # this message responds immediately to let them know we're working
-    RES=requests.get("https://noddy.api.cottagelabs.com/service/oab/find/?plugin=chatbot&url="+URL) # send the URL off to the OAB API
+    RES=requests.get("https://dev.api.cottagelabs.com/service/oab/find/?plugin=chatbot&url="+URL) # send the URL off to the OAB API
     try:
         if len(RES.json()["data"]["availability"])>0: # check is the api returns a successful results
             send_message(sender_id, random.choice(statements["success"])+RES.json()["data"]["availability"][0]["url"]) # if the API is successful, return the URL. e.g http://stm.sciencemag.org/content/6/234/234ra59
