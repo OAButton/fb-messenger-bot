@@ -12,10 +12,10 @@ app = Flask(__name__)
 
 statements={
     "instructions":[
-        "Let's start! Send me the URL to a paywalled article. ",
+        "Let's start! Send me the URL to a paywalled article. I'm still new to this, so if something goes wrong type "error".",
         "Hey! Give me a paywalled-article URL and I'll try and get you an Open Access version! ",
         "Hi there! Go ahead and send me a paywalled article URL. (top tip: use the share to menu on your phone to send me links really easily)",
-        "Hello! The first step is to send me a URL to a paywalled article. ",
+        "Hello! The first step is to send me a URL to a paywalled article. Pro tip, type "error" if something odd happens.",
         "oh hi, need a paper? Send me a link and I'll try and track down a free version. (top tip: use the share to menu on your phone to send me links really easily)",
         "Looking for Open Access? Send me a paywall URL and I'll try to find you an available version. " # commas not on the last line
     ],
