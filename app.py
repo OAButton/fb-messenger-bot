@@ -141,7 +141,8 @@ def send_message(recipient_id, message_text):
 
     myuuid = uuid.uuid4().hex
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + " debug: " + myuuid))
+    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    # debug log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text + " debug: " + myuuid))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
@@ -154,8 +155,11 @@ def send_message(recipient_id, message_text):
             "id": recipient_id
         },
         "message": {
-            "text": message_text + " debug: " + myuuid
+            "text": message_text
         }
+      # Debug  "message": {
+      #      "text": message_text + " debug: " + myuuid
+      #  }
     })
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
     if r.status_code != 200:
