@@ -9,6 +9,11 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+{ 
+  "get_started":{
+    "payload":"Hey, I'm a response"
+  }
+}
 
 statements={
     "instructions":[
